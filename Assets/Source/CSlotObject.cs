@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CSlotObject : MonoBehaviour
 {
@@ -56,7 +58,7 @@ public class CSlotObject : MonoBehaviour
         {
             Vector3 nowpos = gameObject.GetComponent<RectTransform>().position;
 
-            nowpos.y = nowpos.y - 0.001f; 
+            nowpos.y = nowpos.y - 0.5f; 
 
             //終点位置より下なら開始位置へ更新
             if(nowpos.y< mEndpos.y)
@@ -98,6 +100,12 @@ public class CSlotObject : MonoBehaviour
     public void SetEndpos(Vector3 pos)
     {
         mEndpos = pos;
+    }
+
+    //表示する画像取得
+    public void SetSlotTexture(Sprite slottexture)
+    {
+        gameObject.GetComponent<Image>().sprite = slottexture;
     }
 
 
